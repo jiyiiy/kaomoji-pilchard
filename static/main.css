@@ -1,0 +1,177 @@
+.cat-button, .cat-button-active {
+   cursor: pointer;
+   flex-grow: 1;
+   margin-bottom: -1px;
+   margin-right: -1px;
+
+   border: 1px solid #ddd;
+   padding: 4.5px 9px;
+   color: black;
+   text-decoration: none;
+   vertical-align: middle;
+   font-size: 1em;
+
+   }
+.cat-button:hover {
+   border-color: #423700;
+   background: #423700;
+   color: #ffffff;
+   }
+.cat-button:hover * {
+    color: #ffffff !important;
+}
+
+.cat-button:active, .cat-button-active {
+   border-color: #000000;
+   background: #000000;
+   }
+
+
+
+
+body {
+    margin: 0 auto;
+    width: 700px;
+}
+
+
+.cat_cont, .kw_cont {
+    border: 3px dotted gray;
+
+
+    clear: both;
+    overflow: hidden;
+}
+
+.cutoff_px {
+    margin: -1px -2px -1px -1px;
+
+    display: flex;
+   justify-content: space-between;
+   flex-flow: row wrap;
+}
+
+.cat-text {
+    color: black;
+    text-shadow: rgba(0,0,0,0.3) 1px 1px 0px;
+    font-size: 1.4em;
+}
+
+.occurences {
+    font-size: 0.6em;
+    color: darkGreen;
+    float: right;
+}
+
+.emoticon_example {
+    color: #555;
+    text-shadow: none;
+}
+
+
+hr {
+    color: gray;
+    margin: 2px 0;
+    border: none;
+    border-top: 1px solid gray;
+}
+
+
+
+/*
+Emoji Symbols Font (c)blockworks - Kenichi Kaneko
+http://emojisymbols.com/
+*/
+@font-face {
+    font-family: "emoji";
+    src: url("/static/emojisymbolsfont/font/EmojiSymbols-Regular.woff") format('woff');
+}
+
+.emoji {
+    font-family: emoji;
+    font-size: 3em;
+    font-weight: normal;
+}
+
+
+
+.random_emoticon {
+    float: right;
+    color: gray;
+    margin-right: 5px;
+}
+
+h1.logo {
+    text-align: center;
+    border: 3px dotted gray;
+    padding: 30px 0;
+    background: #FFFAF1;
+}
+
+h1.logo a::before {
+    content: "ミ☆ ";
+    font-family: emoji;
+    color: green;
+}
+
+h1.logo a::after {
+    content: " ☆彡";
+    font-family: emoji;
+    color: green;
+}
+
+h1.logo a {
+    color: blue;
+    text-decoration: none;
+}
+
+
+.navi {
+    border: dotted gray;
+    border-width: 0px 3px 3px 3px;
+}
+
+.navi a {
+    display: inline-block;
+    color: black;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: dotted gray;
+    border-width: 0 3px 0 0;
+    font-size: 1.5em;
+    background: white;
+}
+
+.navi a.right {
+    float: right;
+    border-width: 0 0 0 3px;
+}
+
+.navi a:hover, .navi a.active {
+    color: white;
+    background: darkGreen;
+}
+
+
+
+.emoticon {
+    font-size: 1.5em;
+}
+
+.categories {
+    color: #444;
+}
+.keys {
+    color: gray;
+}
+
+
+
+#footer {
+    margin-top: 25px;
+    margin-bottom: 20px;
+    text-align: center;
+    background: #DDD;
+    border: 3px dotted gray;
+    padding-top: 18px;
+}

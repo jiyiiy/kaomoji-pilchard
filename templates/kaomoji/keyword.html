@@ -1,0 +1,33 @@
+{%- import 'include/navi.html' as navi -%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>顔文字{{ trail_header }} - 顔文字-pilchard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+  </head>
+  <body>
+    {{ navi.navi('kaomoji') }}
+
+    <h2><a href="../">顔文字</a> > {{ trail_header }}「{{ keyword|e }}」</div></h2>
+
+    <div class="cat_cont"><div class="cutoff_px">
+        {% for kaomojis in kaomoji_list %}
+            {% for kaomoji in kaomojis %}
+                <a class="cat-button" href="/kaomoji/{{ kaomoji.kaomoji|e }}">
+                    <span class="emoticon">{{ kaomoji.kaomoji }}</span>
+                    {% if kaomoji.cats %}
+                    <br>
+                    <span class="categories">{{ kaomoji.cats|join('<br>') }}</span>
+                    {% endif %}
+                    <br>
+                    <span class="keys">{{ kaomoji.keys|join('<br>') }}</span>
+                    <!--<span class="source">{{ kaomoji.source }}</span>-->
+                </a>
+            {% endfor %}
+        {% endfor %}
+    </div></div>
+
+    {{ navi.footer() }}
+  </body>
+</html>

@@ -1,0 +1,6 @@
+kao-utf8.json: MIT https://github.com/6/kaomoji-json
+dict.txt: GNU GPL https://github.com/takuma-saito/kaomoji-emotion
+emoji_data.tsv/emoticon.tsv/categorized.tsv: https://github.com/google/mozc/tree/master/src/data https://github.com/google/mozc/blob/master/LICENSE
+♡.json: public domain https://github.com/soimort/anthy-kaomoji/blob/f22d0eec335b4e7a3f2b32a604c5ec0dbcc898c9/♡.json
+
+https://github.com/chromium-googlesource-mirror/mozc_old/blob/247b13eece18af4c21836e159b302a39e1dafa5c/src/data/emoticon/emoticon.tsv

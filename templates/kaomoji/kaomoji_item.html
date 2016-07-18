@@ -1,0 +1,81 @@
+{%- import 'include/navi.html' as navi -%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>顔文字キーワード - エモーティコン探し</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+
+  </head>
+  <body>
+    {{ navi.navi('kaomoji') }}
+
+    <h2>
+        <button class="btn" data-clipboard-text="{{ similar|e }}" style="float: right; font-size: 1em">
+            クリップボードにコピー
+        </button>
+
+        <a href="../">顔文字</a> > 「{{ cur_kaomoji|e }}」</div></h2>
+
+    {% for kaomoji in kaomoji_list %}
+        <h3>
+            From
+            {% if  kaomoji.source == 0 %}
+                Mozc
+            {% elif kaomoji.source == 1 %}
+                Anthy-kaomoji
+            {% elif kaomoji.source == 2 %}
+                Kao-utf8
+            {% endif %}
+        </h3>
+
+        {% if kaomoji.cats %}
+        <h4>Categories</h4>
+
+        <div class="cat_cont"><div class="cutoff_px">
+            {% for cat in kaomoji.cats %}
+                <a class="cat-button" href="category/{{ cat|e }}">
+                    <span class="cat-text">{{ cat|e }}</span>
+                </a>
+            {% endfor %}
+        </div></div>
+        {% endif %}
+
+        {% if kaomoji.keys %}
+        <h4>Keywords</h4>
+
+        <div class="cat_cont"><div class="cutoff_px">
+            {% for key in kaomoji.keys %}
+                <a class="cat-button" href="keyword/{{ key|e }}">
+                    <span class="cat-text">{{ key|e }}</span>
+                </a>
+            {% endfor %}
+        </div></div>
+        {% endif %}
+    {% endfor %}
+
+    <h3>Similar kaomoji</h3>
+
+    <div style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
+        <ul>
+            {% for similar in similar_kaomoji %}
+                <li>
+                    {{ similar|e }}
+                    <button class="btn" data-clipboard-text="{{ similar|e }}">
+                        コピー
+                    </button>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    {{ navi.footer() }}
+
+
+    <!-- 2. Include library -->
+    <script src="/static/clipboard.min.js"></script>
+    <script type="text/javascript">
+        var clipboard = new Clipboard('.btn');
+    </script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+{%- import 'include/navi.html' as navi -%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>絵文字キーワード - 顔文字-pilchard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+  </head>
+  <body>
+    {{ navi.navi('emoji') }}
+
+    <h2><a href="../">絵文字</a> > 「{{ cur_emoji|e }}」</div></h2>
+
+
+    {% if emoji.cats %}
+    <h2>Categories</h2>
+
+    <div class="cat_cont"><div class="cutoff_px">
+        {% for cat in emoji.cats %}
+            <a class="cat-button" href="category/{{ cat|e }}">
+                <span class="cat-text">{{ cat|e }}</span>
+            </a>
+        {% endfor %}
+    </div></div>
+    {% endif %}
+
+    {% if emoji.keys %}
+    <h2>Keywords</h2>
+
+    <div class="cat_cont"><div class="cutoff_px">
+        {% for key in emoji.keys %}
+            <a class="cat-button" href="keyword/{{ key|e }}">
+                <span class="cat-text">{{ key|e }}</span>
+            </a>
+        {% endfor %}
+    </div></div>
+    {% endif %}
+
+    <h2>English Name</h2>
+
+    {{ emoji.engnames|e }}
+
+    {{ navi.footer() }}
+  </body>
+</html>

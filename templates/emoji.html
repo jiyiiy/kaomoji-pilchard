@@ -1,0 +1,41 @@
+{%- import 'include/navi.html' as navi -%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>絵文字 - 顔文字-pilchard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+  </head>
+  <body>
+    {{ navi.navi('emoji') }}
+
+    <h2>絵文字 <div class="random_emoticon emoji">{{ random_emoji }}</div></h2>
+
+    <h3>カテゴリー</h3>
+    <div class="cat_cont"><div class="cutoff_px">
+        {% for cat, occurences, rand_cat in emoji_cats %}
+            <a class="cat-button" href="category/{{ cat|e }}">
+                <span class="cat-text">{{ cat|e }}</span>
+                <span class="occurences">×{{ occurences }}</span>
+                <br>
+                <div class="emoticon_example emoji" style="font-size: 7em; text-align: center; padding-bottom: 13px">{{ rand_cat.emoji }}</div>
+            </a>
+        {% endfor %}
+    </div></div>
+
+
+    <h3>キーワード</h3>
+    <div class="cat_cont"><div class="cutoff_px">
+        {% for cat, occurences, rand_cat in emoji_words %}
+            <a class="cat-button" href="keyword/{{ cat|e }}">
+                <span class="cat-text">{{ cat|e }}</span>
+                <span class="occurences">×{{ occurences }}</span>
+                <br>
+                <span class="emoticon_example emoji" style="font-size: 5em">{{ rand_cat.emoji }}</span>
+            </a>
+        {% endfor %}
+    </div></div>
+
+    {{ navi.footer() }}
+  </body>
+</html>

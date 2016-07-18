@@ -1,0 +1,32 @@
+
+{% macro navi(cur_page) %}
+
+    <h1 class="logo" style="margin-bottom: 0;"><a href="/">顔文字-pilchard</a></h1>
+
+    <div class="navi">
+        <a href="/kaomoji"{%
+           if cur_page == "kaomoji" %} class="active"{% endif
+        %}>顔文字</a><!--
+
+     --><a href="/emoji"{%
+           if cur_page == "emoji" %} class="active"{% endif
+        %}>絵文字</a><!--
+
+     --><a href="/about" class="right{%
+           if cur_page == "about" %} active{% endif
+        %}">このサイトについて</a>
+    </div>
+
+{% endmacro %}
+
+
+{% macro footer() %}
+    <div id="footer">
+        Web interface copyright © David Morrissey 2016.<br>See <a href="/static/about.html">about</a> for licensing information.
+
+        <p style="color: darkgreen; font-size: 1.1em">◇ <span style="color: brown">Share</span>:
+            on <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A//kaomoji-pilchard.rhcloud.com/">Facebook</a>
+            or <a href="https://twitter.com/home?status=http%3A//kaomoji-pilchard.rhcloud.com/">Twitter</a> ◇</p>
+    </div>
+{% endmacro %}
+

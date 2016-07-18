@@ -1,0 +1,49 @@
+{%- import 'include/navi.html' as navi -%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>顔文字 - 顔文字-pilchard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/main.css">
+  </head>
+  <body>
+    {{ navi.navi('kaomoji') }}
+
+
+    <h2>顔文字 <div class="random_emoticon">{{ random_kaomoji }}</div></h2>
+
+
+    <h3>カテゴリー</h3>
+    <div class="cat_cont"><div class="cutoff_px">
+        {% for cat, occurences, rand_cat in cats %}
+            <a class="cat-button" href="category/{{ cat|e }}">
+                <span class="cat-text">{{ cat|e }}</span>
+                <span class="occurences">×{{ occurences }}</span>
+                <br>
+                <span class="emoticon_example">{{ rand_cat }}</span>
+            </a>
+        {% endfor %}
+    </div></div>
+    <div id="cat_cands">
+        {# JS-Generated #}
+    </div>
+
+
+    <h3>キーワード</h3>
+    <div class="kw_cont"><div class="cutoff_px">
+        {% for kw, occurences, rand_kw in keywords %}
+            <a class="cat-button" href="keyword/{{ kw|e }}">
+                <span class="cat-text">{{ kw|e }}</span>
+                <span class="occurences">×{{ occurences }}</span>
+                <br>
+                <span class="emoticon_example">{{ rand_kw }}</span>
+            </a>
+        {% endfor %}
+    </div></div>
+    <div id="kw_cands">
+        {# JS-Generated #}
+    </div>
+
+    {{ navi.footer() }}
+  </body>
+</html>
